@@ -13,10 +13,13 @@ React + Django + Nginx + Docker + Certbot + OCI = PWA Web App running on the Clo
 ```shell
 web-app-boilerplate$ npx create-react-app frontend --template cra-template-pwa-typescript
 ```
+
 ## Step2
-# prerequisite: Python3 installed on your computer, Django, django-environ package intalled on the python3
+# prerequisite: Python3 installed on your computer, Django, django-environ, django-cors-headers package intalled on the python3
 - Create django project using template:
 ```shell
 web-app-boilerplate$ django-admin startproject backend
 ```
 - Pull out SECRET_KEY in backend/backend/settings.py and put it in .env file that is gitignored
+- CORS settings in frontend and backend
+- Call simple backend api in frontend
