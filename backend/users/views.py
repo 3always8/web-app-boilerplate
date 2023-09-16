@@ -9,4 +9,4 @@ class GetProfiles(APIView):
         users = Profile.objects.all()
         print(users)
         serializer = ProfileSerializer(users, many=True)
-        return Response(serializer.data)
+        return Response('serializer.data')

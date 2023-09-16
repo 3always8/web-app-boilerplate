@@ -36,7 +36,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1:8080/api",
-    "127.0.0.1:8080/api/",
     "backend",
     "backend:8000",
     "localhost",
