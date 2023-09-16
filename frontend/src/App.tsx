@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import {getUsers} from './apis/users'
 function App() {
+  console.log(getUsers())
+
   return (
     <div className="App">
       <header className="App-header">
