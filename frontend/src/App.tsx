@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import {getUsers} from './apis/users'
 function App() {
+  console.log('dfdf')
   console.log(getUsers())
+  console.log('dfdf')
 
   return (
     <div className="App">
