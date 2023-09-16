@@ -19,3 +19,6 @@ COPY . /backend/
 
 # Run migrations
 RUN env/bin/python manage.py migrate
+
+# Start the server using gunicorn
+CMD ["env/bin/gunicorn", "--workers", "3", "--bind", "0.0.0.0:8000", "config.wsgi"]
