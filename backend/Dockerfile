@@ -4,21 +4,26 @@ FROM python:3.10
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Create and set working directory
-RUN mkdir /backend
-WORKDIR /backend
+# Install pip, virtualenv, and create a virtual environment
+RUN python -m pip install --upgrade pip
+RUN pip install virtualenv
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
-# Install dependencies
-COPY requirements.txt /backend/
-RUN python -m venv env
-RUN env/bin/pip install --upgrade pip
-RUN env/bin/pip install -r requirements.txt
+# Set the working directory in the container
+WORKDIR /usr/src/api
 
-# Copy project files
-COPY . /backend/
+# Copy the requirements files to the container
+COPY requirements.txt ./
 
-# Run migrations
-RUN env/bin/python manage.py migrate
+# Install the app's dependencies using pip
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install gunicorn
 
-# Start the server using gunicorn
-CMD ["env/bin/gunicorn", "--workers", "3", "--bind", "0.0.0.0:8000", "config.wsgi"]
+# Copy the rest of the app's files to the container
+COPY . .
+
+# Run migrations, collect static files, and load data
+RUN python3 manage.py migrate
+
+CMD ["gunicorn", "backend.wsgi:application", "--bind", "0.0.0.0:8000"]
