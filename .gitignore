@@ -4,6 +4,7 @@
 ### certificates ###
 *.pem
 *.key
+*.key.pub
 *.crt
 *.cer
 *.der
