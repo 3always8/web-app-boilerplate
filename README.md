@@ -94,3 +94,16 @@ web-app-boilerplate$ django-admin startproject backend
 - Change "REACT_APP_SERVER_IP" to your domain name in frontend/.env
 - Add "DOMAIN_NAME={your-domain-name}" to .env in root
 - Change 8080 to 80 in docker-compose.yml and nginx/nginx.conf if you don't want to type :8080 at the browser
+
+# Step 7
+## 1. Choose this if you want to:
+- Use HTTPS and actually get your server online to people
+## 2. What this code have done for you:
+- Use HTTPS(443 port) and turn request using HTTP(80 port) to HTTPS
+- Not use 8080 port anymore
+- turn backend to use https://api.{your-domain-name} and change urls according to it
+## 3. prerequisites
+- Use DNS server of Cloudflare
+- Configure SSL settings in Cloudflare
+## 4. What this code left for you to fill:
+- None
