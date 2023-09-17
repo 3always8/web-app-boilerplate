@@ -81,3 +81,16 @@ web-app-boilerplate$ django-admin startproject backend
 - Put IP of your cloud server in backend/.env (key name = SERVER_IP)
 - Put IP of your cloud server in frontend/.env (key name = REACT_APP_SERVER_IP)
 - Run this project in your cloud server
+
+# Step 6
+## 1. Choose this if you want to:
+- Use your domain name instead of the server's raw IP address
+## 2. What this code have done for you:
+- Use the domain name in env files in frontend / backend / docker-compose.yml / web server(nginx)
+## 3. prerequisites
+- Your domain name that is linked to your server's IP address
+## 4. What this code left for you to fill:
+- Change "SERVER_IP" to your domain name in backend/.env
+- Change "REACT_APP_SERVER_IP" to your domain name in frontend/.env
+- Add "DOMAIN_NAME={your-domain-name}" to .env in root
+- Change 8080 to 80 in docker-compose.yml and nginx/nginx.conf if you don't want to type :8080 at the browser
