@@ -23,3 +23,5 @@ services:
     depends_on:
       - backend
       - frontend
+    environment:
+      DOMAIN_NAME: ${DOMAIN_NAME}
