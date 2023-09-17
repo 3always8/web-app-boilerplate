@@ -24,7 +24,6 @@ web-app-boilerplate$ npx create-react-app frontend --template cra-template-pwa-t
 # prerequisites: Python3 installed on your computer, { Django, django-environ, django-cors-headers } packages intalled on your python3
 - Choose this if you want to: Use React as frontend and Django as backend with CORS problem already solved
 - What this code left for you to fill:
-    - Content of React app
     - Content of Django as an api server
     - backend/.env file that contains SECRET_KEY of Django(it can be a random string created by you)
 - What this code have done for you:
@@ -40,9 +39,6 @@ web-app-boilerplate$ django-admin startproject backend
 # prerequisites: Docker installed on your computer(If you are using Windows, you would also need WSL2 to use Linux because you cannot use docker fully on Windows)
 - Choose this if you want to: Use Docker to deploy your app easily
 - What this code left for you to fill:
-    - Content of React app
-    - Content of Django as an api server
-    - backend/.env file that contains SECRET_KEY of Django(it can be a random string created by you)
     - Use "backend$ python -m pip freeze > requirements.txt" command to create requirements.txt file that contains what python packages you have to install
     - Edit python version in top of backend Dockerfile so that it matches to the python version you are using in development
     - Sign in and log in to DockerHub so that you can use push / pull command when deploying
@@ -56,14 +52,17 @@ web-app-boilerplate$ django-admin startproject backend
 # prerequisites: Docker installed on your computer
 - Choose this if you want to: Control concurrent requests
 - What this code left for you to fill:
-    - Content of React app
-    - Content of Django as an api server
-    - backend/.env file that contains SECRET_KEY of Django(it can be a random string created by you)
-    - Use "backend$ python -m pip freeze > requirements.txt" command to create requirements.txt file that contains what python packages you have to install
-    - Edit python version in top of backend Dockerfile so that it matches to the python version you are using in development
-    - Sign in and log in to DockerHub so that you can use push / pull command when deploying
-    - Put your dockerhub username in docker-compose.yml OR Create .env file in the root directory and put "DOCKERHUB_USERNAME=your-dockerhub-username"
     - Customize urls if you want
 - What this code have done for you:
     - Create common, locally workable nginx/nginx.conf file
     - Add nginx service to docker-compose.yml
+
+## Step 5
+# prerequisites: Your own Cloud Server(AWS, Azure, OCI, ...)
+- Choose this if you want to: Run the project all day long not using your computer
+- What this code left for you to fill:
+    - Put IP of your cloud server in backend/.env (key name = SERVER_IP)
+    - Put IP of your cloud server in frontend/.env (key name = REACT_APP_SERVER_IP)
+    - Run this project in your cloud server
+- What this code have done for you:
+    - Use the IP in env files in frontend / backend
