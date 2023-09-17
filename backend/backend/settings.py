@@ -30,6 +30,7 @@ env = environ.Env(
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
+SERVER_IP = env('SERVER_IP')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +43,8 @@ ALLOWED_HOSTS = [
     "localhost:8000",
     "127.0.0.1",
     "127.0.0.1:8000",
+    f"{SERVER_IP}",
+    f"{SERVER_IP}:8000",
 ]
 
 
@@ -151,6 +154,11 @@ CSRF_TRUSTED_ORIGINS = (
     'http://127.0.0.1:8000',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'http://localhost:8080',
+    'http://127.0.0.1:3000',
+    f"http://{SERVER_IP}",
+    f"http://{SERVER_IP}:8000",
+    f"http://{SERVER_IP}:8080",
 )
 
 CORS_ORIGIN_WHITELIST = (
@@ -158,6 +166,11 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:8000',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+    f"http://{SERVER_IP}",
+    f"http://{SERVER_IP}:8000",
+    f"http://{SERVER_IP}:8080",
 )
 
 CORS_ALLOW_HEADERS = (
