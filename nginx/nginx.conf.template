@@ -58,6 +58,11 @@ http {
             proxy_send_timeout 90; 
             proxy_read_timeout 300;
        }
+
+	location /static/ {
+	    autoindex on;
+	    alias /usr/src/api/static/;
+	}
     }
 
 }

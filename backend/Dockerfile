@@ -25,3 +25,4 @@ COPY . .
 
 # Run migrations, collect static files, and load data
 RUN python3 manage.py migrate
+RUN python3 manage.py collectstatic --noinput

@@ -6,6 +6,8 @@ services:
     command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000
     ports:
       - 8000:8000
+    volumes:
+      - static_volume:/usr/src/api/static
 
   frontend:
     image: ${DOCKERHUB_USERNAME}/frontend
@@ -22,6 +24,7 @@ services:
       - "443:443"
     volumes:
       - certs:/etc/letsencrypt
+      - static_volume:/usr/src/api/static
     depends_on:
       - backend
       - frontend
