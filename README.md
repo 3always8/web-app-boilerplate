@@ -99,11 +99,14 @@ web-app-boilerplate$ django-admin startproject backend
 ## 1. Choose this if you want to:
 - Use HTTPS and actually get your server online to people
 ## 2. What this code have done for you:
-- Use HTTPS(443 port) and turn request using HTTP(80 port) to HTTPS
+- In nginx/nginx.conf, configure to use HTTPS(443 port) and proxy request using HTTP(80 port) to HTTPS
 - Not use 8080 port anymore
-- turn backend to use https://api.{your-domain-name} and change urls according to it
+- Turn backend to use https://api.{your-domain-name} and change urls in backend and frontend according to it
+- Get SSL certificate using Letsencrypt and update it automatically before expiring using certbot service in docker-compose.yml
 ## 3. prerequisites
+- Sign in to Cloudflare
 - Use DNS server of Cloudflare
-- Configure SSL settings in Cloudflare
+- Create "api token" in Cloudflare console(not "api key")
 ## 4. What this code left for you to fill:
-- None
+- Create cloudflare.ini file in root and put the "api token" in cloudflare.ini file like "dns_cloudflare_api_token={your-api-token}"
+- Put your email of Cloudflare account in .env file in root like "CLOUDFLARE_EMAIL={your-cloudflare-email}"
